@@ -48,10 +48,10 @@ public class MrReduceServer {
          * Look through the available functions and definition in this Grpc file to complete the task
          */
         @Override
-        public void reduce(ReduceInput request, StreamObserver<ReduceOutput> responseObserver) {
+        public ReduceOutput reduce(ReduceInput request) {
             mr.reduce(request.getInputfilepath(), request.getOutputfilepath())
-            responseObserver.onNext(ReduceOutput.newBuilder().setJobstatus(2).build())
-            responseObserver.onCompleted()
+            ReduceOutput op = ReduceOutput.newBuilder().setJobstatus(2).build()
+            return op
         }
 
     }
