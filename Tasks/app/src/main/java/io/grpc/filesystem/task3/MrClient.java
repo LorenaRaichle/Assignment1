@@ -29,6 +29,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 
 public class MrClient {
+   private static final Logger logger = Logger.getLogger(MrClient.class.getName());
    Map<String, Integer> jobStatus = new HashMap<String, Integer>();
 
    public  void requestMap(String ip, Integer portnumber, String inputfilepath, String outputfilepath) throws InterruptedException {
@@ -39,6 +40,43 @@ public class MrClient {
       * Remember that the map function uses client stream
       * Update the job status every time the map function finishes mapping a chunk, it is useful for calling reduce function once all of the chunks are processed by the map function
       */
+      
+   //    // Create a channel to connect to the server
+   //    ManagedChannel channel = ManagedChannelBuilder.forAddress(ip, portnumber)
+   //    .usePlaintext() 
+   //    .build();
+
+   //    // Create a gRPC stub for the MapService
+   //    MapServiceGrpc.MapServiceStub mapServiceStub = MapServiceGrpc.newStub(channel);
+
+
+   //    StreamObserver<MapRequest> requestObserver = mapServiceStub.map(new StreamObserver<MapResponse>() {
+   //       @Override
+   //       public void onNext(MapResponse response) {
+   //          // Handle responses from the server as they arrive
+   //          System.out.println("Received response: " + response);
+   //       }
+     
+   //       @Override
+   //       public void onError(Throwable t) {
+   //          // Handle errors from the server
+   //          t.printStackTrace();
+   //       }
+     
+   //       @Override
+   //       public void onCompleted() {
+   //          // Called when the server has finished processing the stream
+   //          System.out.println("Server has completed processing.");
+             
+   //          // Update the job status to 2 after map function is completed
+   //          jobStatus.put(inputfilepath, 2);
+   //       }
+   //   });
+     
+   //    MapReduce mr = new MapReduce();
+   //    mr.map(inputfilepath);
+   //    // Notify the server that the client has finished sending requests
+   //    requestObserver.onCompleted();
 
    }
 
@@ -50,7 +88,7 @@ public class MrClient {
       * Remember that the map function uses unary call
       */
 
-      return 0; // update this return statement
+      return 2; // update this return statement
    }
    public static void main(String[] args) throws Exception {// update main function if required
 

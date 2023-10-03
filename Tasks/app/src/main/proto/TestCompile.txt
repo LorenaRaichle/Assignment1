@@ -1,0 +1,1 @@
+protoc -I=Tasks/app/src/main/proto --java_out=Tasks/app/src/main/proto Tasks/app/src/main/proto/communicate.proto
